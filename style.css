@@ -40,7 +40,7 @@ ul li {
     border-radius: 5px;
 }
 
-.project {
+.project, .internship {
     background: #eee;
     padding: 10px;
     margin: 10px 0;
