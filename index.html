@@ -1,96 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palle Naveen | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naveen Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    header {
+      background-color: rgba(10, 15, 36, 0.95);
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #00bcd4;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      padding: 8px 15px;
+      border: 1px solid #00bcd4;
+      border-radius: 20px;
+    }
+    nav a:hover {
+      background-color: #00bcd4;
+      color: #000;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px;
+      background-color: rgba(10, 15, 36, 0.7);
+    }
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00bcd4;
+      margin-bottom: 20px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #00bcd4;
+    }
+    .hero p {
+      max-width: 700px;
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .hero .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .hero .social-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 70px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid #00bcd4;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .hero .social-box:hover {
+      background: #00bcd4;
+      color: #000;
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00bcd4;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: rgba(10, 15, 36, 0.9);
+      margin: 20px;
+      border-radius: 10px;
+    }
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00bcd4;
+    }
+    #about .about-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid #00bcd4;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ccc;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    #about p {
+      margin-bottom: 15px;
+    }
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid #00bcd4;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: left;
+    }
+    .box h4 {
+      color: #00bcd4;
+      margin-bottom: 10px;
+    }
+    .box p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    .skill {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #00bcd4;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 1rem;
+      margin: 5px;
+      display: inline-block;
+    }
+    .skills-boxes {
+      text-align: center;
+    }
+    .footer {
+      background-color: rgba(6, 10, 31, 0.95);
+      text-align: center;
+      padding: 30px;
+      color: #999;
+    }
+    a {
+      color: #00bcd4;
+    }
+    
+    /* Contact Form Styling */
+    .contact-form {
+      background-color: rgba(10, 15, 36, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+    }
+    .contact-form .input-group {
+      margin-bottom: 20px;
+    }
+    .contact-form label {
+      display: block;
+      color: #eee;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #00bcd4;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #eee;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .contact-form textarea {
+      resize: vertical;
+    }
+    .contact-form .send-button {
+      background-color:#00bcd4;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .contact-form .send-button:hover {
+      background-color:#00bcd4;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Palle Naveen</h1>
-        <p>Data Science Enthusiast | Web Developer | AI/ML Learner</p>
-    </header>
+  <header>
+    <h1>Naveen</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hello! I am a passionate B.Tech student at <b>Scient Institute of Technology, Hyderabad</b>, specializing in 
-            Computer Science. My interests lie in Data Science, AI/ML, and Web Development. I am continuously 
-            learning and growing in my field with hands-on projects and internships.
-        </p>
-    </section>
+  <section class="hero">
+    <img src="image.jpg" alt="Naveen Profile Picture" />
+    <h2>Naveen Palle</h2>
+    <p>B.Tech graduate from Scient Institute of Technology, Hyderabad. A problem solver, chess and carrom enthusiast, and someone who loves Telugu songs and biryani. I'm aiming to become a successful data scientist.</p>
+    
+    <div class="social-links">
+      <a href="https://linkedin.com/in/naveennani12232" target="_blank" class="social-box">LinkedIn</a>
+      <a href="https://github.com/" target="_blank" class="social-box">GitHub</a>
+    </div>
+  </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><b>B.Tech (CSE)</b> - Scient Institute of Technology (2021-2025) - GPA: 75%</li>
-            <li><b>Intermediate (MPC)</b> - Sree Chaitanya Junior College (2019-2021) - GPA: 91.6%</li>
-            <li><b>SSC</b> - GHS Ricob Bazar High School (2018-2019) - GPA: 90%</li>
-        </ul>
-    </section>
+  <section class="section" id="about">
+    <h3>About Me</h3>
+    <div class="about-box">
+      <p>I am Palle Naveen, a recent B.Tech graduate in Computer Science and Engineering from Scient Institute of Technology, Hyderabad. I have a strong interest in data science, AI, and software development, supported by hands-on experience through various internships. I have worked on projects like real-time anomaly detection and cryptocurrency price prediction using models such as ANN and LSTM. My technical skills include Python, Java, C, C++, and tools like TensorFlow, Scikit-learn, Power BI, and MySQL. I have completed certifications from Google, TCS, and Infosys to strengthen my knowledge. I am a quick learner with strong problem-solving and logical reasoning abilities. I am confident in my communication and leadership skills and enjoy working in collaborative environments. I always strive to stay updated with new technologies and continuously improve myself. I am passionate about becoming a successful data scientist and contributing innovative solutions. Adaptability and determination are my key strengths in achieving my career goals.</p>
+    </div>
+  </section>
 
-    <section id="internships">
-        <h2>Internships</h2>
-        <div class="internship">
-            <h3>Google Cloud Generative AI | SmartInternz</h3>
-            <p>Gained hands-on experience in Generative AI using Google Cloud tools like Vertex AI, API, and AutoML.</p>
+  <section class="section" id="projects">
+    <h3>Projects</h3>
+    <div class="box-container">
+      <div class="box">
+        <h4>Cryptocurrency Price Prediction</h4>
+        <p>Used ANN and LSTM models to predict Bitcoin, Ethereum, and Ripple prices. Focused on combining short- and long-term trends.</p>
+      </div>
+      <div class="box">
+        <h4>Data Visualization with Python</h4>
+        <p>Cleaned and visualized datasets using Pandas and Matplotlib. Extracted meaningful insights for decision-making.</p>
+      </div>
+      <div class="box">
+        <h4>Anomaly Detection in Streaming Data</h4>
+        <p>Built a real-time anomaly detection system for data streams using machine learning models and statistical thresholds.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="internships">
+    <h3>Internships</h3>
+    <div class="box-container">
+      <div class="box">
+        <h4>Data Science with Python - Kalyan Software</h4>
+        <p>Performed data analysis using NumPy and Pandas. Visualized data with Matplotlib. Explored deployment via Google Cloud (Vertex AI, AutoML).</p>
+      </div>
+      <div class="box">
+        <h4>Generative AI - Google Cloud Internship</h4>
+        <p>Developed real-time AI models using Vertex AI and Cloud APIs. Understood MLOps and deployment workflows on cloud platforms.</p>
+      </div>
+      <div class="box">
+        <h4>AI/ML - YBI Foundation</h4>
+        <p>Applied ML algorithms using Scikit-learn and TensorFlow. Worked on preprocessing, EDA, and model creation for real datasets.</p>
+      </div>
+    </div>
+   </section>
+
+  <section class="section" id="skills">
+    <h3>Skills</h3>
+    <div class="skills-boxes">
+      <div class="skill">Python</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Pandas</div>
+      <div class="skill">NumPy</div>
+      <div class="skill">Matplotlib</div>
+      <div class="skill">C</div>
+      <div class="skill">C++</div>
+      <div class="skill">Java</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>Contact</h3>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/xzzvkoon" method="POST">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name">
         </div>
-        <div class="internship">
-            <h3>Data Science & AI/ML | YBI Foundation</h3>
-            <p>Worked on real-world AI/ML projects using Python, TensorFlow, and Scikit-learn.</p>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email">
         </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Anomaly Detection in Streaming Data</h3>
-            <p>Developed an AI model for real-time anomaly detection using Logistic Regression, Naïve Bayes, and SVM.</p>
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea>
         </div>
-        <div class="project">
-            <h3>Cryptocurrency Price Analysis with AI</h3>
-            <p>Used ANN and LSTM models to predict cryptocurrency prices based on historical data.</p>
-        </div>
-    </section>
+        <button type="submit" class="send-button">Send</button>
+      </form>
+    </div>
+  </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming: Python, Java, C, C++</li>
-            <li>Web Development: HTML, CSS</li>
-            <li>Database: MySQL</li>
-            <li>AI/ML: TensorFlow, Scikit-learn</li>
-            <li>Problem-Solving & Leadership</li>
-        </ul>
-    </section>
-
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Google Analytics Certification - Google</li>
-            <li>Python for Data Science - DataQuest</li>
-            <li>SQL Basics to Advanced - Greekster</li>
-            <li>Data Analytics & Visualization - Forage</li>
-        </ul>
-    </section>
-
-    <section id="hobbies">
-        <h2>Hobbies</h2>
-        <p>Playing Chess & Carroms, Listening to Telugu Songs, Traveling, Watching Movies, Learning New Technologies.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:pallenaveen2003@gmail.com">pallenaveen2003@gmail.com</a></p>
-        <p>Phone: <a href="tel:+916303258166">+91 6303258166</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/naveennani12232" target="_blank">linkedin.com/in/naveennani12232</a></p>
-        <p>Git-Hub:<a href="https://github.com/NAVEEN1437-gitch" target="_blank">NAVEEN1437-gitch</a></p>
-    </section>
-
-    <footer>
-        <p>© 2025 Palle Naveen. All rights reserved.</p>
-    </footer>
+  <footer class="footer">
+    <p>&copy; 2025 Naveen. All rights reserved.</p>
+  </footer>
 </body>
 </html>
-
