@@ -16,7 +16,7 @@
 
 
 
-Description
+# Description
 
 This is a personal portfolio website showcasing Naveen Palle’s background, skills, projects, and contact information.
 The homepage features:
@@ -33,7 +33,7 @@ A resume download/check button for recruiters
 
 
 
-Features Used
+# Features Used
 
 Navigation bar with smooth scrolling between sections
 
